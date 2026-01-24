@@ -1,0 +1,35 @@
+# --- CORE: Performance & Shell ---
+command = /bin/zsh
+
+# --- AESTHETICS: The "Rice" Look ---
+# Remove the native macOS title bar so it sits flush with Sketchybar
+window-decoration = false
+# Enable blur to match macOS "frosted glass" (Aerospace/Sketchybar style)
+background-opacity = 0.85
+background-blur-radius = 20
+# Add slight padding so text doesn't hit the window edges
+window-padding-x = 10
+window-padding-y = 10
+# Hide the mouse when you start typing code
+mouse-hide-while-typing = true
+
+# --- FONTS: Coding Comfort ---
+# Ensure you have a Nerd Font installed (e.g., JetBrainsMono Nerd Font)
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+# Enable ligatures (makes =>, !=, -> look like math symbols)
+font-feature = calt
+font-feature = liga
+
+# --- WINDOW MANAGEMENT ---
+# If you use 'tmux' or 'zellij', you usually want this off.
+# If you use native Ghostty tabs, keep it on.
+window-save-state = always
+
+# --- AI/ML UTILITY ---
+# Copy on select (useful for quick stackoverflow pastes)
+copy-on-select = true
+
+# --- COLORS (Catppuccin Mocha - Best for long coding sessions) ---
+# You can change this to "Tokyo Night" or "Dracula" if preferred
+theme = Catppuccin Mocha
