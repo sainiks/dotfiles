@@ -5,8 +5,8 @@ command = /bin/zsh
 # Remove the native macOS title bar so it sits flush with Sketchybar
 window-decoration = false
 # Enable blur to match macOS "frosted glass" (Aerospace/Sketchybar style)
-background-opacity = 0.85
-background-blur-radius = 20
+background-opacity = 0.65
+background-blur-radius = 10
 # Add slight padding so text doesn't hit the window edges
 window-padding-x = 10
 window-padding-y = 10
@@ -32,4 +32,4 @@ copy-on-select = true
 
 # --- COLORS (Catppuccin Mocha - Best for long coding sessions) ---
 # You can change this to "Tokyo Night" or "Dracula" if preferred
-theme = Catppuccin Mocha
+theme = Dark+
