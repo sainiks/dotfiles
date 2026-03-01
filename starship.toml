@@ -2,7 +2,6 @@
 
 # --- GLOBAL ---
 add_newline = true
-# A cleaner command timeout (shows if a command takes > 2s)
 command_timeout = 2000
 
 # --- MODULES ORDER ---
@@ -10,29 +9,118 @@ format = """
 $directory\
 $git_branch\
 $git_status\
-$python\
+$typescript\
 $nodejs\
+$custom\
+$python\
+$c\
+$golang\
+$rust\
+$docker_context\
+$memory_usage\
 $line_break\
 $character"""
+
+# Right side: Meta info (Time, Duration)
+right_format = """$cmd_duration $time"""
 
 # --- DIRECTORY ---
 [directory]
 style = "bold lavender"
 truncation_length = 3
 truncate_to_repo = false
+read_only = " 🔒"
 
 # --- GIT BRANCH ---
 [git_branch]
 style = "bold mauve"
 symbol = " "
 
-# --- PYTHON (Crucial for AI/ML) ---
+# --- GIT STATUS ---
+[git_status]
+style = "bold red"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "✓"
+untracked = "?"
+stashed = "📦"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# --- FULL STACK LANGUAGES ---
+
+# --- TYPESCRIPT / JS ---
+[nodejs]
+symbol = "⬢ "
+style = "bold green"
+# This makes Node detect TS files too, so you don't need a separate broken module
+detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
+detect_files = ["package.json", ".nvmrc"]
+
+# --- CUSTOM MODULES (Express & Podman) ---
+
+# 1. Express.js Detection
+# Checks if package.json exists AND contains "express"
+[custom.express]
+description = "Express.js Project"
+command = "echo '🚂'"
+when = "test -f package.json && grep -q '\"express\"' package.json"
+style = "bold white"
+format = "[$symbol]($style)"
+
+# 2. Podman Detection
+# Detects Containerfile or Podman-specific files
+[custom.podman]
+description = "Podman Project"
+command = "echo '🦭'" 
+when = "test -f Containerfile || test -f podman-compose.yml"
+style = "bold purple"
+format = "[$symbol]($style)"
+
+# --- OTHER LANGUAGES ---
 [python]
 style = "bold yellow"
 symbol = "🐍 "
-# Only show python version if a .py file or requirements.txt exists
 detect_extensions = ["py", "ipynb"]
-detect_files = ["requirements.txt", "Pipfile", "pyproject.toml"]
+
+[c]
+symbol = "🇨 "
+style = "bold blue"
+
+[golang]
+symbol = "🐹 "
+style = "bold cyan"
+
+[rust]
+symbol = "🦀 "
+style = "bold red"
+
+[docker_context]
+symbol = "🐳 "
+style = "blue dimmed"
+
+# --- SYSTEM STATS ---
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = "🧠 "
+style = "bold red"
+
+# --- RIGHT SIDE INFO ---
+[time]
+disabled = false
+style = "bold text" 
+format = "[$time]($style)"
+time_format = "%T" 
+
+[cmd_duration]
+min_time = 2000
+style = "bold yellow"
+format = "⏱ [$duration]($style) "
 
 # --- PROMPT CHARACTER ---
 [character]
