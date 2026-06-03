@@ -1,3 +1,4 @@
+
 # --- 1. PATHS (Load these first) ---
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/kixel/.meteor:$PATH"
@@ -44,11 +45,16 @@ conda() {
     conda "$@"
 }
 
-# --- 4. INSTANT TOOLS ---
+# --- 4. AUTOCOMPLETE (The Speed Fix) ---
+# Initialize autocomplete instantly, trusting the cache to bypass the 160ms audit
+autoload -Uz compinit
+compinit -C
+
+# --- 5. INSTANT TOOLS ---
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-# --- 5. AUTOMATION ---
+# --- 6. AUTOMATION ---
 save_config() {
     current_dir=$(pwd)
     cd ~/dotfiles
@@ -59,3 +65,14 @@ save_config() {
     cd $current_dir
     echo "✅ Configuration synced to GitHub!"
 }
+
+# bun completions
+[ -s "/Users/kixel/.bun/_bun" ] && source "/Users/kixel/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Added by Antigravity IDE
+export PATH="/Users/kixel/.antigravity-ide/antigravity-ide/bin:$PATH"

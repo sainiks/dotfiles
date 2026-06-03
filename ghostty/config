@@ -3,7 +3,7 @@ command = /bin/zsh
 
 # --- Background Image ---
 # path to your image
-background-image = /Users/kixel/Pictures/whitesnow.png
+#background-image = /Users/kixel/Pictures/Indigo_Neo.png
 
 #Set the background base to pure black
 background = #000000
@@ -13,7 +13,8 @@ background-image-fit = cover
 
 # 0.1 = Faint watermark. 1.0 = Full brightness.
 # Keep this low (0.2 - 0.4) so you can still read your text!
-background-image-opacity = 0.25
+background-image-opacity = 0.2
+
 
 # Merges tabs into the window title (VS Code style)
 macos-titlebar-style = tabs
@@ -25,8 +26,8 @@ macos-titlebar-proxy-icon = hidden
 # Remove the native macOS title bar so it sits flush with Sketchybar
 window-decoration = true
 # Enable blur to match macOS "frosted glass" (Aerospace/Sketchybar style)
-background-opacity = 1.0
-background-blur-radius = 10
+background-opacity = 10
+background-blur-radius = 0
 # Add slight padding so text doesn't hit the window edges
 window-padding-x = 4
 window-padding-y = 4
@@ -52,4 +53,7 @@ copy-on-select = true
 
 # --- COLORS (Catppuccin Mocha - Best for long coding sessions) ---
 # You can change this to "Tokyo Night" or "Dracula" if preferred
-theme = catppuccin-mocha
+theme = Catppuccin-mocha
+
+# Disable the "Are you sure you want to quit?" popup
+confirm-close-surface = false

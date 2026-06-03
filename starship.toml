@@ -61,25 +61,7 @@ style = "bold green"
 detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
 detect_files = ["package.json", ".nvmrc"]
 
-# --- CUSTOM MODULES (Express & Podman) ---
 
-# 1. Express.js Detection
-# Checks if package.json exists AND contains "express"
-[custom.express]
-description = "Express.js Project"
-command = "echo '🚂'"
-when = "test -f package.json && grep -q '\"express\"' package.json"
-style = "bold white"
-format = "[$symbol]($style)"
-
-# 2. Podman Detection
-# Detects Containerfile or Podman-specific files
-[custom.podman]
-description = "Podman Project"
-command = "echo '🦭'" 
-when = "test -f Containerfile || test -f podman-compose.yml"
-style = "bold purple"
-format = "[$symbol]($style)"
 
 # --- OTHER LANGUAGES ---
 [python]
